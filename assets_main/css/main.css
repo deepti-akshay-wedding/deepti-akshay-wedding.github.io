@@ -100,12 +100,12 @@ input, select, textarea {
 
 	body {
 		background-color: #2e3141;
-		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 		background-size: auto, cover;
 		background-attachment: fixed, fixed;
 		background-position: center, center;
 	}
 
+    /**
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
@@ -116,6 +116,7 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
+    **/
 
 /* Type */
 
@@ -168,10 +169,11 @@ input, select, textarea {
 		}
 
 	a {
-		-moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		/*-moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        */
 		border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
 		color: #ffffff;
 		text-decoration: none;
@@ -2722,10 +2724,12 @@ input, select, textarea {
 		}
 
 			ul.pagination li > .page {
+                /**
 				-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                */
 				border-bottom: 0;
 				border-radius: 5px;
 				display: inline-block;
@@ -2856,10 +2860,12 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
+        /**
 		-moz-transition: background-color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
+        */
 		background-color: transparent;
 		border-radius: 5px;
 		border: 0;
@@ -3069,10 +3075,12 @@ input, select, textarea {
 /* Header */
 
 	#header {
+        /*
 		-moz-transition: background-color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
+        */
 		background-color: rgba(53, 56, 73, 0.95);
 		height: 3.5em;
 		left: 0;
@@ -3085,10 +3093,12 @@ input, select, textarea {
 	}
 
 		#header h1 {
+            /*
 			-moz-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			-webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			-ms-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			transition: opacity 0.2s ease-in-out, visibility 0.2s;
+            */
 			border-bottom: 0;
 			font-size: 0.8em;
 			margin-bottom: 0;
@@ -3126,10 +3136,12 @@ input, select, textarea {
 
 				#header nav a[href="#menu"] {
 					text-decoration: none;
+                    /**
 					-moz-transition: background-color 0.2s ease-in-out;
 					-webkit-transition: background-color 0.2s ease-in-out;
 					-ms-transition: background-color 0.2s ease-in-out;
 					transition: background-color 0.2s ease-in-out;
+                    */
 					border-radius: 5px;
 					box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.125);
 					padding: 0 1.35em;
@@ -3225,12 +3237,14 @@ input, select, textarea {
 
 /* Menu */
 
+        /*
 	#page-wrapper {
 		-moz-transition: -moz-filter 0.25s ease;
 		-webkit-transition: -webkit-filter 0.25s ease;
 		-ms-transition: -ms-filter 0.25s ease;
 		transition: filter 0.25s ease;
 	}
+    */
 
 	#menu {
 		-moz-align-items: center;
@@ -3246,10 +3260,12 @@ input, select, textarea {
 		-ms-justify-content: center;
 		justify-content: center;
 		pointer-events: none;
+        /**
 		-moz-transition: opacity 0.35s ease, visibility 0.35s;
 		-webkit-transition: opacity 0.35s ease, visibility 0.35s;
 		-ms-transition: opacity 0.35s ease, visibility 0.35s;
 		transition: opacity 0.35s ease, visibility 0.35s;
+        **/
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
@@ -3269,6 +3285,7 @@ input, select, textarea {
 
 		#menu .inner {
 			padding: 2.5em 1.5em 0.5em 1.5em ;
+            /*
 			-moz-transform: translateY(0.5em);
 			-webkit-transform: translateY(0.5em);
 			-ms-transform: translateY(0.5em);
@@ -3277,6 +3294,7 @@ input, select, textarea {
 			-webkit-transition: opacity 0.35s ease, -webkit-transform 0.35s ease;
 			-ms-transition: opacity 0.35s ease, -ms-transform 0.35s ease;
 			transition: opacity 0.35s ease, transform 0.35s ease;
+            */
 			-webkit-overflow-scrolling: touch;
 			background: #4c5c96;
 			border-radius: 5px;
@@ -3384,10 +3402,12 @@ input, select, textarea {
 		}
 
 		#banner .logo {
+            /*
 			-moz-transition: opacity 2s ease, -moz-transform 1s ease;
 			-webkit-transition: opacity 2s ease, -webkit-transform 1s ease;
 			-ms-transition: opacity 2s ease, -ms-transform 1s ease;
 			transition: opacity 2s ease, transform 1s ease;
+            **/
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
@@ -3463,7 +3483,6 @@ input, select, textarea {
 			#banner {
 				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
-				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 				background-size: auto, cover;
 				background-position: center, center;
 				margin-bottom: -6.5em;
@@ -3573,7 +3592,6 @@ input, select, textarea {
 		#wrapper > header {
 			padding: 9em 0 6.25em 0 ;
 			background-color: #2e3141;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 			background-size: auto, cover;
 			background-position: center, 0% 30%;
 			margin-bottom: -6.5em;
@@ -4061,7 +4079,6 @@ input, select, textarea {
 
 		#footer {
 			background-color: #2e3141;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 			background-size: auto, cover;
 			background-position: center, center;
 			margin-top: -6.5em;
