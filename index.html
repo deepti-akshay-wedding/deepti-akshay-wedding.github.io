@@ -43,13 +43,16 @@
 						<div class="inner">
 							<div class="logo"><span class="icon fa-gem"></span></div>
 							<h2>Deepti and Akshay's Wedding</h2>
-							<p>Please enter the password from your invite to
-                            continue.</a></p>
                             <div id="password-form">
-                                <form id="signup-form" method="GET" action="http://127.0.0.1:8080">
+                                <!--<form id="signup-form" method="GET"
+                                    action="http://127.0.0.1:8080">-->
+							        <p>Please enter the password from your invite to
+                                        continue.</a></p>
+                                    <input type="email" name="email"
+                                                        id="password" placeholder="Email" />
                                     <input type="text" name="password" id="password" placeholder="Password" />
-                                    <input type="submit" value="Enter" /> 
-        </form>
+                                    <input id="signupform" type="button" name = "enter" value="Enter" onclick="unhidePage"/> 
+                                    <!--</form>-->
                             </div>
 						</div>
 					</section>
@@ -131,7 +134,6 @@
 							</section>
 
 					</section>
-
 			</div>
 
 		<!-- Scripts -->

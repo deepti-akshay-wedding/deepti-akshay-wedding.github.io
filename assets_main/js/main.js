@@ -142,4 +142,17 @@
 
 			});
 
+		var $signupform = $('#signupform');
+        $signupform
+            .on('click', function(event) {
+                unhidePage();
+            });
+
 })(jQuery);
+
+
+function unhidePage() {
+    console.log("In unhide page")
+    document.getElementById("password-form").hidden = true;
+    document.getElementById("wrapper").style.display = "block";
+}

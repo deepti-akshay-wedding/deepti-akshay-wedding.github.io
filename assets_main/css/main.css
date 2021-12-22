@@ -3670,11 +3670,14 @@ input, select, textarea {
 
 	}
 
+    #wrapper {
+        display: none;
+    }
+
 	.wrapper {
 		background-color: #2e3141;
 		margin: 6.5em 0;
 		position: relative;
-        display: none;
 	}
 
 		.wrapper:before, .wrapper:after {
