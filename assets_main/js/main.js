@@ -145,11 +145,40 @@
 		var $signupform = $('#signupform');
         $signupform
             .on('click', function(event) {
-                unhidePage();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var data = logIn(email, password);
+                if (data != undefined) {
+                    unhidePage(data);
+                }
             });
 
 })(jQuery);
 
+function logIn(email, password) {
+    console.log("logging in with " + email + "/" + password);
+    var url = "https://script.google.com/macros/s/AKfycbx7irJ1exky4wJ3EDNjiygYzfOMzY4Mjg9QYwnSjsqOpsLcuu0-VA-Hodt4G7I9FvI_/exec?&email=" + email + "&password=" + password;
+    var resp = $.ajax({
+        async: false,
+        method: "POST", 
+        crossDomain: true, 
+        url: url,
+        dataType: "json",
+        "headers": {
+            "Content-Type": "text/plain",
+        }
+    });
+    var resp_json = resp.responseJSON;
+    if (resp_json.hasOwnProperty("result")) {
+        console.log("email or password were incorrect");
+        return undefined;
+    } else if (resp_json.hasOwnProperty("location")) {
+        return resp_json;
+    } else {
+        console.log("malformed response");
+        return undefined;
+    }
+}
 
 function unhidePage() {
     console.log("In unhide page")
