@@ -155,6 +155,11 @@
 
 })(jQuery);
 
+let groupName = "";
+let group = []
+
+// TODO: add cookie
+
 function logIn(email, password) {
     console.log("logging in with " + email + "/" + password);
     var url = "https://script.google.com/macros/s/AKfycbx7irJ1exky4wJ3EDNjiygYzfOMzY4Mjg9QYwnSjsqOpsLcuu0-VA-Hodt4G7I9FvI_/exec?&email=" + email + "&password=" + password;
@@ -173,6 +178,10 @@ function logIn(email, password) {
         console.log("email or password were incorrect");
         return undefined;
     } else if (resp_json.hasOwnProperty("location")) {
+        console.log(resp_json)
+        getGroup(email).then(data => {
+          showGroup(data);
+        });
         return resp_json;
     } else {
         console.log("malformed response");
@@ -184,4 +193,47 @@ function unhidePage() {
     console.log("In unhide page")
     document.getElementById("password-form").hidden = true;
     document.getElementById("wrapper").style.display = "block";
+}
+
+async function getGroup(email) {
+  const rsvpsCol = db.collection('rsvps');
+  await rsvpsCol.where("email", "==", email).get().then( (querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        groupName = doc.data().group;
+    });
+  });
+  console.log(groupName);
+  await rsvpsCol.where("group", "==", groupName).get().then( (groupSnapshot) => {
+    group = groupSnapshot.docs.map(doc => doc.data());
+  });
+  console.log(group);
+  return group;
+}
+
+function showGroup(group) {
+  var rsvpForm = document.getElementById("groupList");
+  group.forEach( (member) => {
+    let check = "checked ";
+    if(!member.rsvp) {
+      check = "";
+    }
+    rsvpForm.innerHTML += '<input type="checkbox" id="' + member.email + '" ' + check + '>'
+      + '<label for="' + member.email + '">' + member.name + '</label><br>';
+  });
+  rsvpForm.innerHTML += '<button type="button" onclick="setRsvp()" id="rsvp">Submit</button>'
+}
+
+function setRsvp() {
+  group.forEach( member => {
+    var isChecked = document.getElementById(member.email).checked;
+    db.collection('rsvps').where("email", "==", member.email).get().then(snapshot => {
+      snapshot.forEach(doc => {
+        doc.ref.update({
+          rsvp: isChecked
+        })
+      })
+    });
+  })
+
+  document.getElementById("msg").innerHTML = "Updated RSVPs!"
 }
